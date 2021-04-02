@@ -1,0 +1,52 @@
+﻿@model MemberAdminUI.Models.Membership
+
+@{
+    ViewData["Title"] = "DeleteMembershipConfirm";
+}
+
+<h1>Bekräftning</h1>
+
+<div class="d-flex justify-content-center">
+    <div class="w-75 bg-light rounded p-3 shadow">
+        <h3>Är du säker på att du vill radera medlemskapet?</h3>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Discount)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Discount)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MembershipType)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MembershipType)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+        </dl>
+        <hr/>
+        <form asp-action="DeleteMembership" method="post">
+            <input type="hidden" value="@Model.Id" name="membershipId" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> 
+            <a class="btn btn-primary mt-1 mb-1" asp-action="Index">Tillbaka</a>
+        </form>
+    </div>
+</div>

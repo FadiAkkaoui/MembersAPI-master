@@ -1,0 +1,35 @@
+﻿@model MemberAdminUI.Models.AdminLogin
+@{
+    ViewData["Title"] = "Logga in";
+}
+
+    <p>@ViewBag.Error</p>
+    <form class="loginform" asp-action="Index" method="post">
+        <div class="imgcontainer">
+            <img src="~/images/logga.png" alt="Avatar" class="avatar" />
+        </div>
+        <div class="container">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <label asp-for="Email"><b>E-Mail</b></label>
+            <input asp-for="Email" type="text" placeholder="Email" required />
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+
+            <label asp-for="Password"><b>Lösenord</b></label>
+            <input asp-for="Password" type="password" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+            <input class="ButtonLogin" type="submit" value="Logga in" />
+            <label>
+                <input type ="checkbox" checked="checked" name="remember">Kom ihåg mig
+            </label>
+        </div>
+        <div class ="container">
+            <button type="button" class="cancelbtn"> Avbryt</button>
+            <span class="psw">
+                Glömt<a href="#">lösenord?</a>  
+            </span>
+        </div>
+    </form>
+

@@ -1,0 +1,44 @@
+﻿.dropul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #302f52;
+}
+
+    .dropul li {
+        display: block;
+        float: left;
+        margin: 0 10px;
+    }
+
+.dropmeny a {
+    color: white !important;
+}
+
+.dropmeny ul {
+    display: none;
+}
+
+.dropmeny:hover .dropul {
+    display: block;
+    position: absolute;
+}
+
+.dropmeny:hover .dropmeny {
+    float: none;
+}
+
+.dropmeny:hover a {
+    background-color: #302f52;
+    color: white;
+}
+
+.dropmeny:hover .dropmeny a:hover {
+    width: 100px;
+}
+
+.profilePic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}

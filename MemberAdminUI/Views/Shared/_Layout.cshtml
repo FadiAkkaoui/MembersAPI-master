@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>@ViewData["Title"] - Medlemsadmin</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://informatik6.ei.hv.se/CSS/Nystyle/stylesheetAdmin.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="~/css/StyleSheet.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="bild">
+    <header>
+        <nav class=" navbaren navbar navbar-expand-lg navbar-toggleable-lg navbar-light box-shadow mb-3">
+            <div class="container">
+                <img src="http://193.10.202.76/bilderReact/loggavitOrange.png" alt="" class="logga" />
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-lg-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1 meny">
+                        <li class="nav-item">
+                            <a href="http://193.10.202.71/MachineProduct">Produkter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://193.10.202.72/admin-member">Medlemmar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://informatik3.ei.hv.se/AdminLogin/">Systemadmin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://informatik4.ei.hv.se/AdminBookingClient">Bokningar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://193.10.202.75/EmployeeAdminMVC">Personal</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="https://informatik6.ei.hv.se/HemsidaReact ">Startsida</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dropdown show">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Hantera
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" asp-controller="Members" asp-action="Index">Medlemmar</a>
+                        <a class="dropdown-item" asp-controller="Memberships" asp-action="Index">Medlemskap</a>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="footer text-muted">
+        <div class="container">
+            &copy;2021 - React - <a asp-area="" asp-controller="Home" asp-action="Privacy">
+                Hem
+            </a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site2.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

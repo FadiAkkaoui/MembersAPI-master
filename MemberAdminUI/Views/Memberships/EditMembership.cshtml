@@ -1,0 +1,50 @@
+﻿@model MemberAdminUI.Models.Membership
+
+@{
+    ViewData["Title"] = "EditMembership";
+}
+
+<h3 class="text-center" >Ändra medlemskapstypen @Html.DisplayFor(model => model.MembershipType)</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditMembership" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label">Id</label>
+                <input  asp-for="Id" class="form-control" readonly />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MembershipType" class="control-label">Medlemskapstyp</label>
+                <input asp-for="MembershipType" class="form-control" />
+                <span asp-validation-for="MembershipType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Beskrivning</label>
+                <textarea asp-for="Description" class="form-control" rows="4" cols="50">@Html.DisplayFor(model => model.Description)</textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Pris</label>
+                <input type="number" asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discount" class="control-label">Rabatt</label>
+                <input type="number" asp-for="Discount" class="form-control" />
+                <span asp-validation-for="Discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Spara ändringar" class="btn btn-primary" />
+                <a class="btn btn-primary mt-1 mb-1" asp-action="Index">Tillbaka</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

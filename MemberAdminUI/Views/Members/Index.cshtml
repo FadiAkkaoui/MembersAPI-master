@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MemberAdminUI.Models.Member>
+@{
+    ViewData["Title"] = "CreateMember";
+}
+
+<h1>Medlemmar</h1>
+@if (TempData["Result"] != null)
+{
+    <div class="alert alert-primary alert-dismissible fade show text-center mt-1">
+        <p>@TempData["Result"]</p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<p>
+    <a class="btn btn-primary mt-1 mb-1" asp-action="CreateMember">Lägg till medlem</a>
+    <a class="btn btn-primary mt-1 mb-1" asp-action="Index" asp-controller="Memberships">Hantera medlemskap</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Namn</th>
+            <th>Efternamn</th>
+            <th>Email</th>
+            <th>Telefonnummer</th>
+            <th>Startdatum</th>
+            <th>Medlemskap</th>
+            <th>Profilbild</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+            <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Email)</td>
+            <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+            <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
+            <td>
+                @foreach (var membership in ViewData["MembershipType"] as List<Membership>)
+                {
+                    if (item.MemberShipId == membership.Id)
+                    {
+                        <p>@membership.MembershipType</p>
+                    }
+                }
+            </td>
+            <td><img class="profilePic" src="@Html.DisplayFor(modelItem => item.ProfilePicture)" alt="Deafult Profilbild"></td>
+            <td>@Html.ActionLink("Ändra bild", "EditProfilePic", new { id = item.Id })</td>
+            <td>
+                <a asp-action="EditMember" asp-route-id="@item.Id"><img class="icon" src="https://img.icons8.com/color/48/000000/edit--v1.png" /></a>
+                <a asp-action="GetMember" asp-route-id="@item.Id"><img class="icon" src="https://img.icons8.com/color/48/000000/about.png" /></a>
+                <a asp-action="DeleteMemberConfirm" asp-route-id="@item.Id"><img class="icon" src="https://img.icons8.com/color/48/000000/delete-sign--v1.png" /></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+

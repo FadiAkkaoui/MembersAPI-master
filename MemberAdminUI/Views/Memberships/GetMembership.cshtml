@@ -1,0 +1,52 @@
+﻿@model MemberAdminUI.Models.Membership
+
+@{
+    ViewData["Title"] = "GetMembership";
+}
+
+<h1>Detaljer för medlemskapet @Html.DisplayFor(model => model.MembershipType)</h1>
+
+
+<div class="d-flex justify-content-center">
+    <div class="w-75 bg-light rounded p-3 shadow">
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+            <dt class="col-sm-2">
+                Medlemskapstyp
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MembershipType)
+
+            </dd>
+            <dt class="col-sm-2">
+                Beskrivning
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-2">
+                Pris
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+            <dt class="col-sm-2">
+                Rabatt
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Discount)
+            </dd>
+        </dl>
+        <hr />
+        <div>
+            @Html.ActionLink("Ändra", "EditMembership", new { id = Model.Id }, new { @class = "btn btn-primary mt-1 mb-1" }) 
+            <a class="btn btn-primary mt-1 mb-1" asp-action="Index">Tillbaka</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Membership>
+
+@{
+    ViewData["Title"] = "GetMemberships";
+}
+
+<h1>Medlemskap</h1>
+
+@if(TempData["Result"] != null)
+{
+    <div class="alert alert-primary alert-dismissible fade show text-center mt-1">
+        <p>@TempData["Result"]</p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<p>
+    <a class="btn btn-primary mt-1 mb-1" asp-action="CreateMembership">Lägg till ett medlemskap</a>
+    <a class="btn btn-primary mt-1 mb-1" asp-action="Index" asp-controller="Members">Hantera medlemmar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                Medlemskapstyp
+            </th>
+            <th>
+                Beskrivning
+            </th>
+            <th>
+                Ordinarie Pris
+            </th>
+            <th>
+                Rabatt
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.MembershipType
+                </td>
+                <td>
+                    @item.Description
+                </td>
+                <td>
+                    @item.Price
+                </td>
+                <td>
+                    @item.Discount
+                </td>
+                <td>
+                    <a asp-action="EditMembership"asp-route-id="@item.Id"><img class="icon"src="https://img.icons8.com/color/48/000000/edit--v1.png"/></a>
+                    <a asp-action="GetMembership"asp-route-id="@item.Id"><img class="icon"src="https://img.icons8.com/color/48/000000/about.png"/></a>
+                    <a asp-action="DeleteMembershipConfirm"asp-route-id="@item.Id"><img class="icon"src="https://img.icons8.com/color/48/000000/delete-sign--v1.png"/></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

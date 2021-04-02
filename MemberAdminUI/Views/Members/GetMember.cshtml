@@ -1,0 +1,71 @@
+﻿@model MemberAdminUI.Models.Member
+
+
+@{
+    ViewData["Title"] = "DetailsMember";
+}
+<h1>Medlems detaljer</h1>
+<div class="d-flex justify-content-center">
+    <div class="w-75 bg-light rounded p-3 shadow">
+        <div class="">
+            <img class="profilePic" src="@Html.DisplayFor(model => model.ProfilePicture)" alt="Deafult Profilbild">
+        </div>
+        <hr />
+        <dl class="row">
+            <dt class="col-lg-2">
+                Personnummer
+            </dt>
+            <dd class="col-lg-10">
+                @Html.DisplayFor(model => model.SocialSecurityNumber)
+            </dd>
+            <dt class="col-lg-2">
+                Förnamn
+            </dt>
+            <dd class="col-lg-10">
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+            <dt class="col-lg-2">
+                Efternamn
+            </dt>
+            <dd class="col-lg-10">
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+            <dt class="col-lg-2">
+                Email
+            </dt>
+            <dd class="col-lg-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-lg-2">
+                Telefon
+            </dt>
+            <dd class="col-lg-10">
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+            <dt class="col-lg-2">
+                Startdatum
+            </dt>
+            <dd class="col-lg-10">
+                @Html.DisplayFor(model => model.StartDate)
+            </dd>
+            <dt class="col-lg-2">
+                Slutdatum
+            </dt>
+            <dd class="col-lg-10">
+                @Html.DisplayFor(model => model.EndDate)
+            </dd>
+            <dt class="col-lg-2">
+                Medlemskap
+            </dt>
+            <dd class="col-lg-10">
+                @ViewBag.MembershipType
+            </dd>
+        </dl>
+        <hr />
+        <div>
+            @Html.ActionLink("Redigera", "EditMember", new { id = Model.Id }, new { @class = "btn btn-primary mt-1 mb-1" }) 
+            <a class="btn btn-primary mt-1 mb-1" asp-action="Index">Tillbaka</a>
+        </div>
+    </div>
+</div>
+
